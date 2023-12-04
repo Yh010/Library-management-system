@@ -1,1 +1,75 @@
-Library Management System API Documentation
+# Library Management System API Documentation
+
+This API manages a library system by providing endpoints to perform CRUD (Create, Read, Update, Delete) operations on books.
+
+## Base URL
+The base URL for all endpoints is `/api/books`.
+
+## Endpoints
+
+### Retrieve All Books
+- **URL:** `GET /api/books`
+- **Description:** Retrieves a list of all books in the library.
+- **Request:** None
+- **Response:** 
+  - **Status:** 200 OK
+  - **Body:** Array of book objects
+
+Example Response Body:
+```json
+[
+  {
+    "id": 1,
+    "title": "Book Title",
+    "author": "Author Name",
+    "ISBN": "1234567890"
+  },
+  {
+    "id": 2,
+    "title": "Another Book",
+    "author": "Another Author",
+    "ISBN": "0987654321"
+  }
+]
+
+### Retrieve a Specific Book
+- **URL:** `GET /api/books/{id}`
+- **Description:** Retrieves details of a specific book by its ID.
+- **Request Parameters:** 
+  - **Status:** 200 OK
+  - **Body:** Book object
+- **Response:** 
+  - **Status:** 200 OK
+  - **Body:** Array of book objects
+
+Example Response Body:
+```json
+[
+  {
+  "id": 1,
+  "title": "Book Title",
+  "author": "Author Name",
+  "ISBN": "1234567890"
+  }
+]
+
+### Add a New Book
+- **URL:** `POST /api/books`
+- **Description:** Retrieves details of a specific book by its ID.
+- **Request Parameters:** 
+  - **Status:** 200 OK
+  - **Body:** Book object
+- **Response:** 
+  - **Status:** 200 OK
+  - **Body:** Array of book objects
+
+Example Response Body:
+```json
+[
+  {
+  "id": 1,
+  "title": "Book Title",
+  "author": "Author Name",
+  "ISBN": "1234567890"
+  }
+]
