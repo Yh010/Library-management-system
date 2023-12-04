@@ -1,23 +1,30 @@
-# Library Management System API Documentation
+Library Management System API Documentation
+===========================================
 
 This API manages a library system by providing endpoints to perform CRUD (Create, Read, Update, Delete) operations on books.
 
-## Base URL
+Base URL
+--------
+
 The base URL for all endpoints is `/api/books`.
 
-## Endpoints
+Endpoints
+---------
 
 ### Retrieve All Books
-- **URL:** `GET /api/books`
-- **Description:** Retrieves a list of all books in the library.
-- **Request:** None
-- **Response:** 
-  - **Status:** 200 OK
-  - **Body:** Array of book objects
+
+-   URL: `GET /api/books`
+-   Description: Retrieves a list of all books in the library.
+-   Request: None
+-   Response:
+    -   Status: 200 OK
+    -   Body: Array of book objects
 
 Example Response Body:
-```json
-[
+
+jsonCopy code
+
+`[
   {
     "id": 1,
     "title": "Book Title",
@@ -30,46 +37,105 @@ Example Response Body:
     "author": "Another Author",
     "ISBN": "0987654321"
   }
-]
+]`
 
 ### Retrieve a Specific Book
-- **URL:** `GET /api/books/{id}`
-- **Description:** Retrieves details of a specific book by its ID.
-- **Request Parameters:** 
-  - **Status:** 200 OK
-  - **Body:** Book object
-- **Response:** 
-  - **Status:** 200 OK
-  - **Body:** Array of book objects
+
+-   URL: `GET /api/books/{id}`
+-   Description: Retrieves details of a specific book by its ID.
+-   Request Parameters:
+    -   `{id}`: ID of the book
+-   Response:
+    -   Status: 200 OK
+    -   Body: Book object
 
 Example Response Body:
-```json
-[
-  {
+
+jsonCopy code
+
+`{
   "id": 1,
   "title": "Book Title",
   "author": "Author Name",
   "ISBN": "1234567890"
-  }
-]
+}`
 
 ### Add a New Book
-- **URL:** `POST /api/books`
-- **Description:** Retrieves details of a specific book by its ID.
-- **Request Parameters:** 
-  - **Status:** 200 OK
-  - **Body:** Book object
-- **Response:** 
-  - **Status:** 200 OK
-  - **Body:** Array of book objects
+
+-   URL: `POST /api/books`
+-   Description: Adds a new book to the library.
+-   Request Body:
+    -   JSON object representing the new book
+    -   Required fields: `title`, `author`, `ISBN`
+-   Response:
+    -   Status: 200 OK
+    -   Body: Newly added book object
+
+Example Request Body:
+
+jsonCopy code
+
+`{
+  "title": "New Book",
+  "author": "New Author",
+  "ISBN": "9876543210"
+}`
+
+### Update Book Details
+
+-   URL: `PUT /api/books/{id}`
+-   Description: Updates details of a specific book by its ID.
+-   Request Parameters:
+    -   `{id}`: ID of the book
+-   Request Body:
+    -   JSON object with updated book details
+-   Response:
+    -   Status: 200 OK
+    -   Body: Updated book object
+
+Example Request Body:
+
+jsonCopy code
+
+`{
+  "title": "Updated Title",
+  "author": "Updated Author",
+  "ISBN": "1231231234"
+}`
+
+### Delete a Book
+
+-   URL: `DELETE /api/books/{id}`
+-   Description: Deletes a specific book by its ID.
+-   Request Parameters:
+    -   `{id}`: ID of the book
+-   Response:
+    -   Status: 200 OK
+    -   Body: Updated list of books after deletion
 
 Example Response Body:
-```json
-[
+
+jsonCopy code
+
+`[
   {
-  "id": 1,
-  "title": "Book Title",
-  "author": "Author Name",
-  "ISBN": "1234567890"
+    "id": 1,
+    "title": "Book Title",
+    "author": "Author Name",
+    "ISBN": "1234567890"
+  },
+  {
+    "id": 2,
+    "title": "Another Book",
+    "author": "Another Author",
+    "ISBN": "0987654321"
   }
-]
+]`
+
+Additional Information
+----------------------
+
+-   The request and response bodies are expected to be in JSON format.
+-   Proper error handling is implemented for various scenarios such as invalid requests, missing fields, or non-existent books.
+-   The server may respond with appropriate HTTP status codes and error messages in case of errors.
+-   Ensure to authenticate and authorize endpoints if necessary, to protect sensitive operations.
